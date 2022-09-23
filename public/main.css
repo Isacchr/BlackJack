@@ -5,4 +5,20 @@ body {
 
 #playingField {
     border: 1px solid black;
+    padding: 10px;
+}
+
+#btnPlay {
+    text-align: right;
+    margin-right: 50px;
+}
+
+#btnPlay button {
+    margin-right: 50px;
+}
+
+button {
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
 }
