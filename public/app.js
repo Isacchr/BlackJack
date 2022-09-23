@@ -1,26 +1,24 @@
+var x;
+var y;
 
-var cardDeck = new Array();
+var cardDeck = [x,y];
 
-    cardDeck[0] = new Array(13);
-    cardDeck[1] = new Array(13); 
-    cardDeck[2] = new Array(13); 
-    cardDeck[3] = new Array(13); 
 
-    
 build = () => {
 
-    //console.log(cardDeck[1][4]);
 
 }
 
 startGame = () => {
 
-    const min = Math.ceil(cardDeck[0][0]);
-    const max = Math.floor(cardDeck[3][12]);
+    var randomizer = (max) => { 
+        return Math.floor(Math.random(cardDeck) * max)
+    }
 
-    var getRandomCard = Math.floor(Math.random() * max + min);
+    console.log(randomizer(4) + "," + randomizer(14));
 
-    console.log(getRandomCard);
+
+
 
     const divPlayingField = document.getElementById('playingField');
     const btnStartGame = document.getElementById('btnStartGame');
