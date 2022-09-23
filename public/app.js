@@ -7,6 +7,7 @@ var yourCards = [];
 
 build = () => {
 
+    
 
 }
 
@@ -33,7 +34,17 @@ startGame = () => {
     divPlayingField.hidden = false;
     btnStartGame.innerHTML = 'Start New Game';
 
-
-
 }
 
+hit = () => {
+
+    var randomizer = (max) => { 
+        return Math.floor(Math.random(cardDeck) * max)
+    }
+
+    var cards = (randomizer(4) + "," + randomizer(14));
+    yourCards.push(cards); 
+
+    console.log(yourCards);
+
+}
