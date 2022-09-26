@@ -73,23 +73,84 @@ help = () => {
 
     var playerCards = document.getElementById('playerCards');
 
-    
-
     if ( card.color === 0 ) {
-        playerCards.innerHTML += (`hjärter ${value+1} <br>`)
         console.log('hjärter');
+    switch (card.value) {
+        case 10:
+            playerCards.innerHTML += (`Hjärter Knäkt <br>`);
+            break;
+        case 11:
+            playerCards.innerHTML += (`Hjärter Dam <br>`);
+            break;
+        case 12: 
+            playerCards.innerHTML += (`Hjärter Kung <br>`);
+            break;
+        case 1:
+            playerCards.innerHTML += (`Hjärter Ess <br>`);
+            break;
+        default: 
+            playerCards.innerHTML += (`Hjärter ${value+1} <br>`)
+        } 
     } 
+
     if ( card.color === 1 ) {
-        playerCards.innerHTML += (`klöver ${value+1} <br>`)
         console.log('klöver');
+    switch (card.value) {
+        case 10:
+            playerCards.innerHTML += (`Klöver Knäkt <br>`);
+            break;
+        case 11:
+            playerCards.innerHTML += (`Klöver Dam <br>`);
+            break;
+        case 12: 
+            playerCards.innerHTML += (`Klöver Kung <br>`);
+            break;
+        case 1:
+            playerCards.innerHTML += (`Klöver Ess <br>`);
+            break;
+        default: 
+            playerCards.innerHTML += (`Klöver ${value+1} <br>`)
+        } 
     } 
+
     if ( card.color === 2 ) {
-        playerCards.innerHTML += (`spader ${value+1} <br>`)
         console.log('spader');
+    switch (card.value) {
+        case 10:
+            playerCards.innerHTML += (`Spader Knäkt <br>`);
+            break;
+        case 11:
+            playerCards.innerHTML += (`Spader Dam <br>`);
+            break;
+        case 12: 
+            playerCards.innerHTML += (`Spader Kung <br>`);
+            break;
+        case 1:
+            playerCards.innerHTML += (`Spader Ess <br>`);
+            break;
+        default: 
+            playerCards.innerHTML += (`Spader ${value+1} <br>`)
+        } 
     }
+
     if ( card.color === 3 ) {
-        playerCards.innerHTML += (`ruter ${value+1} <br>`)
         console.log('ruter');
+    switch (card.value) {
+        case 10:
+            playerCards.innerHTML += (`Ruter Knäkt <br>`);
+            break;
+        case 11:
+            playerCards.innerHTML += (`Ruter Dam <br>`);
+            break;
+        case 12: 
+            playerCards.innerHTML += (`Ruter Kung <br>`);
+            break;
+        case 1:
+            playerCards.innerHTML += (`Ruter Ess <br>`);
+            break;
+        default: 
+            playerCards.innerHTML += (`Ruter ${value+1} <br>`)
+        } 
     }
 
 } 
@@ -99,9 +160,6 @@ hit = () => {
     drawCard();
 
     console.table(cardDeck);
-
-   /* var playerCards = document.getElementById('playerCards');
-    playerCards.innerHTML = yourCards;*/
 
 }
 
@@ -121,4 +179,11 @@ scoreResult = () => {
     }
 
     playerScore.innerHTML = result;
+
+    if ( result == 21 ) { 
+        alert('YOU WON')
+    } else if ( result > 21 ){
+        alert('YOU LOST')
+    }
+
 }
