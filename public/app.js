@@ -22,10 +22,11 @@ startGame = () => {
     for ( i=0; i<2; i++) {
 
         drawCard();
-
+        help(cardDeck);
+        
     }
 
-    help(cardDeck);
+ 
     
     console.table(cardDeck);
 
@@ -63,26 +64,28 @@ checkDuplicates = (cards) => {;
 help = (cardDeck) => {
 
     var playerCards = document.getElementById('playerCards');
-    playerCards.innerHTML += (`${color} ${value} <br>`)
+   //playerCards.innerHTML += (`${color} ${value} <br>`)
 
-    playerCards.innerHTML += '';
+    //playerCards.innerHTML += '';
 
-    cardDeck.forEach(card => {
+    //cardDeck.forEach(card => { });- 
 
-        if( card.color == 0) {
+        if( cards.color == 0) {
+            playerCards.innerHTML += (`hjärter ${value} <br>`)
             console.log('hjärter');
-        }
-        if( card.color == 1 ) {
+        } 
+        if( cards.color == 1 ) {
+            playerCards.innerHTML += (`klöver ${value} <br>`)
             console.log('klöver');
-        }
-        if( card.color == 2 ) {
+        } 
+        if( cards.color == 2 ) {
+            playerCards.innerHTML += (`spader ${value} <br>`)
             console.log('spader');
         }
-        if( card.color == 3 ) {
+        if( cards.color == 3 ) {
+            playerCards.innerHTML += (`ruter ${value} <br>`)
             console.log('ruter');
         }
-
-    }); 
 
 } 
 
