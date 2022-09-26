@@ -6,6 +6,11 @@ var cardDeck = [color, value];
 var yourCards = [];
 var computerCards = [];
 
+build = () => {
+
+
+
+}
 
 startGame = () => {
 
@@ -28,7 +33,7 @@ startGame = () => {
 
     divPlayingField.hidden = false;
     btnStartGame.innerHTML = 'Start New Game';
-
+    
 }
 
 drawComputerCard = () => {
@@ -54,7 +59,7 @@ drawCard = () => {
     card = {color , value };
 
     checkDuplicates(card);
-    help(cardDeck);
+    help();
     scoreResult();
 }
 
@@ -74,82 +79,82 @@ help = () => {
     var playerCards = document.getElementById('playerCards');
 
     if ( card.color === 0 ) {
-        console.log('hjärter');
+
     switch (card.value) {
         case 10:
-            playerCards.innerHTML += (`Hjärter Knäkt <br>`);
+            playerCards.innerHTML += (`Jack of Hearts <br>`);
             break;
         case 11:
-            playerCards.innerHTML += (`Hjärter Dam <br>`);
+            playerCards.innerHTML += (`Queen of Hearts <br>`);
             break;
         case 12: 
-            playerCards.innerHTML += (`Hjärter Kung <br>`);
+            playerCards.innerHTML += (`King of Hearts <br>`);
             break;
-        case 1:
-            playerCards.innerHTML += (`Hjärter Ess <br>`);
+        case 0: 
+            playerCards.innerHTML += (`Ace of Hearts <br>`);
             break;
         default: 
-            playerCards.innerHTML += (`Hjärter ${value+1} <br>`)
+            playerCards.innerHTML += (`${value+1} of Hearts <br>`)
         } 
     } 
 
     if ( card.color === 1 ) {
-        console.log('klöver');
+  
     switch (card.value) {
         case 10:
-            playerCards.innerHTML += (`Klöver Knäkt <br>`);
+            playerCards.innerHTML += (`Jack of Clubs <br>`);
             break;
         case 11:
-            playerCards.innerHTML += (`Klöver Dam <br>`);
+            playerCards.innerHTML += (`Queen of Clubs <br>`);
             break;
         case 12: 
-            playerCards.innerHTML += (`Klöver Kung <br>`);
+            playerCards.innerHTML += (`King of Clubs <br>`);
             break;
-        case 1:
-            playerCards.innerHTML += (`Klöver Ess <br>`);
+        case 0: 
+            playerCards.innerHTML += (`Ace of Clubs <br>`);
             break;
         default: 
-            playerCards.innerHTML += (`Klöver ${value+1} <br>`)
+            playerCards.innerHTML += (`${value+1} of Clubs <br>`)
         } 
     } 
 
     if ( card.color === 2 ) {
-        console.log('spader');
+
     switch (card.value) {
         case 10:
-            playerCards.innerHTML += (`Spader Knäkt <br>`);
+            playerCards.innerHTML += (`Jack of Spades <br>`);
             break;
         case 11:
-            playerCards.innerHTML += (`Spader Dam <br>`);
+            playerCards.innerHTML += (`Queen of Spades <br>`);
             break;
         case 12: 
-            playerCards.innerHTML += (`Spader Kung <br>`);
+            playerCards.innerHTML += (`King of Spades <br>`);
             break;
-        case 1:
-            playerCards.innerHTML += (`Spader Ess <br>`);
-            break;
+        case 0: 
+            playerCards.innerHTML += (`Ace of Spades <br>`);
+            break;   
         default: 
-            playerCards.innerHTML += (`Spader ${value+1} <br>`)
+            playerCards.innerHTML += (`${value+1} of Spades<br>`)
         } 
     }
 
     if ( card.color === 3 ) {
-        console.log('ruter');
+
     switch (card.value) {
         case 10:
-            playerCards.innerHTML += (`Ruter Knäkt <br>`);
+            playerCards.innerHTML += (`Jack of Diamonds <br>`);
             break;
         case 11:
-            playerCards.innerHTML += (`Ruter Dam <br>`);
+            playerCards.innerHTML += (`Queen of Diamonds <br>`);
             break;
         case 12: 
-            playerCards.innerHTML += (`Ruter Kung <br>`);
+            playerCards.innerHTML += (`King of Diamonds <br>`);
             break;
-        case 1:
-            playerCards.innerHTML += (`Ruter Ess <br>`);
-            break;
+        case 0: 
+            playerCards.innerHTML += (`Ace of Diamonds <br>`);
+            break;    
         default: 
-            playerCards.innerHTML += (`Ruter ${value+1} <br>`)
+            playerCards.innerHTML += (`${value+1} of Diamonds <br>`)
         } 
     }
 
@@ -164,13 +169,14 @@ hit = () => {
 }
 
 scoreResult = () => {
+
     var playerScore = document.getElementById('score');
 
     var result = 0;
 
     for ( var i = 0; i < cardDeck.length; i++ ) {
 
-        if (cardDeck[i].value+1 > 10 ) {
+        if (cardDeck[i].value > 9 ) {
             result += 10;
         } else {
             result += cardDeck[i].value+1;
@@ -181,9 +187,9 @@ scoreResult = () => {
     playerScore.innerHTML = result;
 
     if ( result == 21 ) { 
-        alert('YOU WON')
+        playerScore.innerHTML += '<br> YOU WIN, HUH BEGGINERS LUCK';
     } else if ( result > 21 ){
-        alert('YOU LOST')
-    }
+        playerScore.innerHTML += '<br> YOU LOSE HAHAHA U TRASH NOOB';
+    } 
 
 }
