@@ -13,24 +13,21 @@ build = () => {
 
 startGame = () => {
 
+    cardDeck = [];
     yourCards = [];
 
-    var randomizer = (max) => Math.floor(Math.random(cardDeck) * max);
-    
+    var playerCards = document.getElementById('playerCards');
+    playerCards.innerHTML = '';
+
     for ( i=0; i<2; i++) {
 
-        color = randomizer(4);
-        value = randomizer(13);
-
-        cards = {color , value };
-
-        yourCards.push(cards); 
+        drawCard();
 
     }
 
-    help(yourCards);
+    help(cardDeck);
     
-    console.table(yourCards);
+    console.table(cardDeck);
 
     const divPlayingField = document.getElementById('playingField');
     const btnStartGame = document.getElementById('btnStartGame');
@@ -40,25 +37,39 @@ startGame = () => {
 
 }
 
-checkDuplicates = (cards) => {
+drawCard = () => {
 
-    yourCards[color,value];
+    var randomizer = (max) => Math.floor(Math.random(cardDeck) * max);
 
-    if (yourCards.includes(cards)) {
+    color = randomizer(4);
+    value = randomizer(13);
+
+    cards = {color , value };
+
+    checkDuplicates(cards);
+}
+
+checkDuplicates = (cards) => {;
+
+   if (yourCards.includes(`${color} ${value}`)) {
         hit();
     } else {
+        yourCards.push(`${color} ${value}`);
         cardDeck.push(cards);
     }
 
 }
 
-help = (yourCards) => {
+help = (cardDeck) => {
 
     var playerCards = document.getElementById('playerCards');
+    playerCards.innerHTML += (`${color} ${value} <br>`)
 
-    yourCards.forEach(card => {
+    playerCards.innerHTML += '';
 
-        if(card.color == 0) {
+    cardDeck.forEach(card => {
+
+        if( card.color == 0) {
             console.log('hjärter');
         }
         if( card.color == 1 ) {
@@ -75,27 +86,15 @@ help = (yourCards) => {
 
 } 
 
-
 hit = () => {
 
-    var randomizer = (max) => { 
-        return Math.floor(Math.random(cardDeck) * max)
-    }
+    drawCard();
 
-    color = randomizer(4);
-    value = randomizer(13);
+    console.table(cardDeck);
 
-    cards = {color , value };
+    help(cardDeck);
 
-    yourCards.push(cards);  
-
-    checkDuplicates(cards, yourCards);
-
-    console.log(yourCards);
-
-   /*var playerCards = document.getElementById('playerCards');
+   /* var playerCards = document.getElementById('playerCards');
     playerCards.innerHTML = yourCards;*/
-
-    help(yourCards);
 
 }
