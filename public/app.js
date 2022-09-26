@@ -1,7 +1,7 @@
-var x;
-var y;
+var color;
+var value;
 
-var cardDeck = [x,y];
+var cardDeck = [color, value];
 
 var yourCards = [];
 
@@ -15,42 +15,22 @@ startGame = () => {
 
     yourCards = [];
 
-    var randomizerCardDenomination= (max) => { 
-        return Math.floor(Math.random(cardDeck) * max)
-    }
+    var randomizer = (max) => Math.floor(Math.random(cardDeck) * max);
     
-    var randomizerCardType = (max) => { 
-        return Math.floor(Math.random(cardDeck) * max)
-    }
-
     for ( i=0; i<2; i++) {
 
-        var cards = (randomizerCardDenomination(4) + "," + randomizerCardType(13));
+        color = randomizer(4);
+        value = randomizer(13);
+
+        cards = {color , value };
 
         yourCards.push(cards); 
 
-        if ( x == 0 ) {
-            console.log('hjärter');
-        } 
-
     }
 
-
-    var playerCards = document.getElementById('playerCards');
-    playerCards.innerHTML = yourCards;
+    help(yourCards);
     
-    console.log(yourCards);
-
-    /* if ( [x] == 0 ) {
-        console.log('hjärter');
-    };
-
-    if ( [x] == 1 ) {
-        console.log('klöver');
-    }; */
-
-    //help(yourCards);
-
+    console.table(yourCards);
 
     const divPlayingField = document.getElementById('playingField');
     const btnStartGame = document.getElementById('btnStartGame');
@@ -60,25 +40,41 @@ startGame = () => {
 
 }
 
-/* help = (yourCards) => {
+checkDuplicates = (cards) => {
 
-    if( [x] == 0 ) {
-        console.log('hjärter');
+    yourCards[color,value];
+
+    if (yourCards.includes(cards)) {
+        hit();
+    } else {
+        cardDeck.push(cards);
     }
 
-    if( [x] == 1 ) {
-        console.log('klöver');
-    }
+}
 
-    if( [x] == 2 ) {
-        console.log('spader');
-    }
+help = (yourCards) => {
 
-    if( [x] == 3 ) {
-        console.log('diamant');
-    }
+    var playerCards = document.getElementById('playerCards');
 
-} */
+    yourCards.forEach(card => {
+
+        if(card.color == 0) {
+            console.log('hjärter');
+        }
+        if( card.color == 1 ) {
+            console.log('klöver');
+        }
+        if( card.color == 2 ) {
+            console.log('spader');
+        }
+        if( card.color == 3 ) {
+            console.log('ruter');
+        }
+
+    }); 
+
+} 
+
 
 hit = () => {
 
@@ -86,12 +82,20 @@ hit = () => {
         return Math.floor(Math.random(cardDeck) * max)
     }
 
-    var cards = (randomizer(4) + "," + randomizer(13));
-    yourCards.push(cards); 
+    color = randomizer(4);
+    value = randomizer(13);
+
+    cards = {color , value };
+
+    yourCards.push(cards);  
+
+    checkDuplicates(cards, yourCards);
 
     console.log(yourCards);
 
-    /*var playerCards = document.getElementById('playerCards');
+   /*var playerCards = document.getElementById('playerCards');
     playerCards.innerHTML = yourCards;*/
+
+    help(yourCards);
 
 }
