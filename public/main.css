@@ -6,15 +6,16 @@ body {
 #playingField {
     border: 1px solid black;
     padding: 10px;
+    width: 60%;
+    margin: 0 auto;
 }
 
 #btnPlay {
     text-align: right;
-    margin-right: 50px;
 }
 
 #btnPlay button {
-    margin-right: 50px;
+    margin-right: 20px;
 }
 
 button {
